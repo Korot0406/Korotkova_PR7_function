@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <cstring>
+#include <algorithm>
 using namespace std;
 
 void process(string &str){
@@ -81,4 +82,14 @@ int power_number(int x, int n){
         --n;
         return power_number(x, n) * x;
     }
+}
+
+int sum_positive(int* arr, int size, auto lambda_func){
+    int sum = 0;
+
+    for(int i = 0; i < size; ++i){
+        if(lambda_func(arr[i], size)) sum += arr[i];
+    }
+
+    return sum;
 }
