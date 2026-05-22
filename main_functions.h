@@ -61,3 +61,14 @@ namespace namespace_string2
         cout << "Количество цифр в строке: " << k << "\n";
     }
 }
+
+template <typename T>
+T sum_array(const T*arr, int size){
+    T sum = 0;
+
+    for(int i = 0; i < size; ++i){
+        sum += arr[i];
+    }
+
+    return sum;
+}
