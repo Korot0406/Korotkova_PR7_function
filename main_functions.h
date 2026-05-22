@@ -72,3 +72,13 @@ T sum_array(const T*arr, int size){
 
     return sum;
 }
+
+int power_number(int x, int n){
+    if(n == 0){
+        return 1;
+    }
+    while(n > 0){
+        --n;
+        return power_number(x, n) * x;
+    }
+}

@@ -8,6 +8,7 @@ using namespace std;
 // Прототипы функций
 void process(string &str);
 void process(char *str);
+int power_number(int x, int n);
 
 // Прототип шаблонной функции
 template <typename T>
@@ -83,15 +84,20 @@ void problem3(){
 
     cout << "Массив типа double: ";
     for(int i = 0; i < n; ++i){
-        arrDouble[i] = (rand() % 200 - 100)/10.0;
+        arrDouble[i] = (rand() % 200 - 100) / 10.0;
         cout << arrDouble[i] << " ";
     }
 
     cout << "\nСумма всех элементова массива типа double: " << sum_array(arrDouble, n) << "\n\n";
 }
 
+// Задание 4. Напишите рекурсивную функцию, которая возводит число в степень.
 void problem4(){
+    int x = IntEnterNumber("Введите число: ", 1, 1000);
+    int n = IntEnterNumber("Введите степень: ", 0, 1000);
 
+    int p = power_number(x, n);
+    cout << "Число " << x << " в степени " << n << ": " << p << "\n\n";
 }
 
 void problem5(){
