@@ -31,6 +31,33 @@ int IntEnterNumber(string label, int MinValue = numeric_limits<int>::min(), int 
     return stoi(raw_input);
 }
 
+// Функция проверки корректности ввода вещественного числа 
+bool DoubleUserInput(string input, int MinValue, int MaxValue) {
+    if (input.empty())return false;
+
+    try {
+        size_t pos;
+        double result = stod(input, &pos);
+
+        return (input.length() == pos && (result >= MinValue && result <= MaxValue));
+    }
+    catch (...) {
+        return false;
+    }
+}
+
+// Функция ввода вещественного числа с повторением запроса до корректного ввода
+double DoubleEnterNumber(string label, int MinValue = numeric_limits<int>::min(), int MaxValue = numeric_limits<int>::max()) {
+    string raw_input;
+    cout << label;
+    getline(cin, raw_input);
+    while (!DoubleUserInput(raw_input, MinValue, MaxValue)) {
+        cout << label;
+        getline(cin, raw_input);
+    }
+    return stod(raw_input);
+}
+
 // Функция проверки корректности ввода непустой строки типа string
 bool UserInputStr(string input) {
     input.erase(remove_if(input.begin(), input.end(), ::isspace), input.end());

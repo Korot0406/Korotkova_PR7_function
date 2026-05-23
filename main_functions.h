@@ -4,6 +4,7 @@
 #include <algorithm>
 using namespace std;
 
+// Функция 1 для замены цифр в строке на символ "*"
 void process(string &str){
     int len = str.length();
     
@@ -14,6 +15,7 @@ void process(string &str){
     }
 }
 
+// Функция 2 для подсчета цифр в строке и их удалении 
 void process(char *str){
     int len = strlen(str);
     int j = 0;
@@ -31,6 +33,7 @@ void process(char *str){
     cout << "Количество цифр в строке: " << k << "\n";
 }
 
+// Пространство имен 1, содержащем функцию, которая заменяет цифры в строке на символ "*"
 namespace namespace_string1
 {
     void process(string &str){
@@ -44,6 +47,7 @@ namespace namespace_string1
     }
 }
 
+// Пространство имен 2, содержащем функцию, которая подсчитывает цифры и удаляет их
 namespace namespace_string2
 {
     void process(string &str){
@@ -63,6 +67,7 @@ namespace namespace_string2
     }
 }
 
+// Шаблонная функция, которая считает сумму элементова массива
 template <typename T>
 T sum_array(const T*arr, int size){
     T sum = 0;
@@ -74,16 +79,20 @@ T sum_array(const T*arr, int size){
     return sum;
 }
 
-int power_number(int x, int n){
+// Рекурсивная функция, которая возводит число в степень
+double power_number(double x, int n){
     if(n == 0){
         return 1;
     }
-    while(n > 0){
-        --n;
-        return power_number(x, n) * x;
+    else if(n > 0){
+        return x * power_number(x, n - 1);
+    }
+    else{
+        return 1 / (x * power_number(x, -n - 1));
     }
 }
 
+// Функция, которая считает сумму положительных чисел массива
 int sum_positive(int* arr, int size, auto lambda_func){
     int sum = 0;
 
