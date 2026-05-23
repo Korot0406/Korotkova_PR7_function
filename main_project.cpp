@@ -8,7 +8,6 @@ using namespace std;
 // Прототипы функций
 void process(string &str);
 void process(char *str);
-int power_number(int x, int n);
 
 // Прототип шаблонной функции
 template <typename T>
